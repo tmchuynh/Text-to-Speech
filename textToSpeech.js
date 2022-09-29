@@ -10,3 +10,9 @@ document.querySelector("#rate").addEventListener("input", () => {
     speech.rate = rate;
     document.querySelector("#rate-label").innerHTML = rate;
 });
+
+document.querySelector("#volume").addEventListener("input", () => {
+    const volume = document.querySelector("#volume").value;
+    speech.volume = volume;
+    document.querySelector("#volume-label").innerHTML = volume;
+});
