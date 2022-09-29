@@ -16,3 +16,9 @@ document.querySelector("#volume").addEventListener("input", () => {
     speech.volume = volume;
     document.querySelector("#volume-label").innerHTML = volume;
 });
+
+document.querySelector("#pitch").addEventListener("input", () => {
+    const pitch = document.querySelector("#pitch").value;
+    speech.pitch = pitch;
+    document.querySelector("#pitch-label").innerHTML = pitch;
+});
