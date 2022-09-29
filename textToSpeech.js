@@ -39,3 +39,15 @@ document.querySelector("#talk").addEventListener("click", () => {
     speech.text = document.querySelector("textarea").value;
     window.speechSynthesis.speak(speech);
 });
+
+document.querySelector("#pause").addEventListener("click", () => {
+    window.speechSynthesis.pause();
+});
+
+document.querySelector("#resume").addEventListener("click", () => {
+    window.speechSynthesis.resume();
+});
+
+document.querySelector("#resume").addEventListener("click", () => {
+    window.speechSynthesis.resume();
+});
