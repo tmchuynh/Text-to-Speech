@@ -1,15 +1,7 @@
-let speech = new SpeechSynthesisUtterance();
 speech.lang = "en";
-let voices = [];
 
-document.querySelector("#talk").addEventListener("click", () => {
+document.querySelector("#start").addEventListener("click", () => {
     speech.text = document.querySelector("textarea").value;
-});
-
-document.querySelector("#rate").addEventListener("input", () => {
-    const rate = document.querySelector("#rate").value;
-    speech.rate = rate;
-    document.querySelector("#rate-label").innerHTML = rate;
 });
 
 document.querySelector("#volume").addEventListener("input", () => {
@@ -18,11 +10,20 @@ document.querySelector("#volume").addEventListener("input", () => {
     document.querySelector("#volume-label").innerHTML = volume;
 });
 
+document.querySelector("#rate").addEventListener("input", () => {
+    const rate = document.querySelector("#rate").value;
+    speech.rate = rate;
+    document.querySelector("#rate-label").innerHTML = rate;
+});
+
 document.querySelector("#pitch").addEventListener("input", () => {
     const pitch = document.querySelector("#pitch").value;
     speech.pitch = pitch;
     document.querySelector("#pitch-label").innerHTML = pitch;
 });
+
+
+let voices = []; // global array
 
 window.speechSynthesis.onvoiceschanged = () => {
     voices = window.speechSynthesis.getVoices();
@@ -35,7 +36,7 @@ document.querySelector("#voices").addEventListener("change", () => {
     speech.voice = voices[document.querySelector("#voices").value];
 });
 
-document.querySelector("#talk").addEventListener("click", () => {
+document.querySelector("#start").addEventListener("click", () => {
     speech.text = document.querySelector("textarea").value;
     window.speechSynthesis.speak(speech);
 });
@@ -48,6 +49,6 @@ document.querySelector("#resume").addEventListener("click", () => {
     window.speechSynthesis.resume();
 });
 
-document.querySelector("#resume").addEventListener("click", () => {
-    window.speechSynthesis.resume();
+document.querySelector("#cancel").addEventListener("click", () => {
+    window.speechSynthesis.cancel();
 });
