@@ -34,3 +34,8 @@ window.speechSynthesis.onvoiceschanged = () => {
 document.querySelector("#voices").addEventListener("change", () => {
     speech.voice = voices[document.querySelector("#voices").value];
 });
+
+document.querySelector("#talk").addEventListener("click", () => {
+    speech.text = document.querySelector("textarea").value;
+    window.speechSynthesis.speak(speech);
+});
