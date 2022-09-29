@@ -1,0 +1,1 @@
+let speech = new SpeechSynthesisUtterance();
